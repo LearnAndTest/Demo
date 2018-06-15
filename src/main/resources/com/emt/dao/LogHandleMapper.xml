@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.emt.dao.LogHandleMapper">
+    <resultMap id="BaseResultMap" type="com.emt.vo.LogHandle">
+        <result	property="id"			column="ID"				jdbcType="VARCHAR"/>
+        <result property="className"	column="CLASSNAME"		jdbcType="VARCHAR"/>
+        <result property="time"			column="TIME"			jdbcType="VARCHAR"/>
+        <result property="level"		column="ERRORLEVEL"		jdbcType="VARCHAR"/>
+        <result property="serialId"		column="SERIALID"		jdbcType="VARCHAR"/>
+        <result property="errorMsg"		column="ERRORMSG"		jdbcType="VARCHAR"/>
+        <result property="data"			column="DATA"			jdbcType="VARCHAR"/>
+        <result property="spare"		column="SPARE"			jdbcType="VARCHAR"/>
+        
+    </resultMap>
+    
+    <insert id="insertLogHandInfo" parameterType="com.emt.vo.LogHandle">
+    	INSERT INTO T_LOGHANDLE (ID,CLASSNAME,TIME,ERRORLEVEL,SERIALID,ERRORMSG,DATA,SPARE)
+    	VALUES(
+    	#{id,jdbcType=VARCHAR},#{className,jdbcType=VARCHAR},#{time,jdbcType=VARCHAR},
+    	#{level,jdbcType=VARCHAR},#{serialId,jdbcType=VARCHAR},#{errorMsg,jdbcType=VARCHAR},
+    	#{data,jdbcType=VARCHAR},#{spare,jdbcType=VARCHAR})
+    </insert>
+    
+</mapper>
